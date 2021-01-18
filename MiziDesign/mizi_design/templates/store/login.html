@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<center>
+<h2 style="text-align: center;  color: #74015c;  padding: 20px;margin-top: 4%;"  >Login Page</h2><br>    
+<div style="width: 25%;  overflow: hidden;  margin: auto;  margin: 20 0 0 450px;  padding: 80px;  background:  #74015c;  border-radius: 15px ; ">    
+<form id="login" method="POST" action="">    
+    {% csrf_token %}
+    <label style="color: white;font-size: 17px;"><b>User Name</b></label><br>
+        <input type="text" name="username" id="username" placeholder="Username" style="text-align:center;width: 80%;  height: 40%;  border: none;  border-radius: 3px;  padding-left: 8px; ">    
+        <br><br>  
+        <label style="color: white; font-size: 17px;"><b>Password     
+        </b>    
+        </label><br>
+        <input type="password" name="password" id="password" placeholder="Password" style="text-align:center;width: 80%;  height: 40%;  border: none;  border-radius: 3px;  padding-left: 8px;">    
+        <br><br><br>
+        <input type="submit" name="log" id="log" style="width: 50%; height: 50%;  border: none;  border-radius: 7px;  padding-left: 7px;  color: #74015c;background-color: white;  "value="Log In">       
+        <br><br>    
+        <input type="checkbox" id="check">    
+        <span style="color: white;  font-size: 17px;  ">Remember me</span>    
+        <br><br>    
+        <a href="{% url 'forgot_password' %}" style="float:left;color: white;">Forgot Password</a>    
+        <a href="{% url 'sign_up' %}" style="float: right;color: white;">Sign Up</a>    
+    
+    </form>     
+</div>
+{% for message in messages %}
+    <p id="message">{{message}}</p>
+{% endfor %}
+</center>
+{% endblock content %}

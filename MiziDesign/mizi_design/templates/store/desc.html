@@ -1,0 +1,23 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div>
+<div style="margin: 5% 3% 5% 3%;
+border:2px solid #74015c;
+border-radius: 4px;
+padding: 1% 1% 1% 1%; max-width: 50%; float: left; min-width: 40%;" >
+    <center>
+    <img style=" width: 100%;" src="{{desc.geturl}}" height="500">
+    </center>
+</div>
+<div style="float: left;margin: 5% 3% 5% 3%; max-width: 50%;">
+    <h1 style="color:#74015c;">{{desc.name}}</h1>
+    <br><br>
+    <h4 style="color:#74015c;">Description</h4>
+    <p style="color: white;max-width:100%;word-wrap:break-word;">{{desc.description}}</p>
+    <br>
+    <h5 style="color: white;"> Rs {{desc.price}}</h5>
+    <button  data-product="{{ desc.id}} " data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+</div>
+</div>
+{% endblock content %}

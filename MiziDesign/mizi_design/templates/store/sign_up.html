@@ -1,0 +1,43 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<center>
+<h2 style="text-align: center;  color:  #74015c;  padding: 20px; margin-top: 4%;"  >Sign Up Page</h2><br>    
+<div style="width: 25%;  overflow: hidden;  margin: auto;  margin: 20 0 0 450px;  padding: 80px;  background:  #74015c;  border-radius: 15px ; ">    
+<form id="login" method="POST" action="">    
+    {% csrf_token %}
+    <label style="color: white;font-size: 17px;"><b>Name</b></label><br>
+        {{form.username}}
+        <br><br>  
+        <label style="color: white;font-size: 17px;"><b>Email</b></label><br>
+        {{form.email}}   
+        <br><br>  
+        <label style="color: white; font-size: 17px;"><b>Password     
+        </b>    
+        </label><br>
+        {{form.password1}}
+        <br><br>   
+        <label style="color: white; font-size: 17px;"><b>Re-Type Password     
+        </b>    
+        </label><br>
+        {{form.password2}} 
+        <br><br>    
+        <input type="submit" name="log" id="log" style="width: 50%; height: 50%;  border: none;  border-radius: 7px;  padding-left: 7px;  color: #74015c;background-color: white;  
+        "value="Sign Up">       
+        <br><br>        
+    </form> 
+</div>    
+    <p style="text-align:center;color: white;">{{form.errors}}</p>
+</center>
+<script>
+    var form_fields=document.getElementsByTagName('input')
+    form_fields[1].placeholder='Username..';
+    form_fields[2].placeholder='Email..';
+    form_fields[3].placeholder='Password..';
+    form_fields[4].placeholder='Re-enter Password..';
+
+    for (var field in form_fields){
+        form_fields[field].className+='form-control'
+    }
+</script>
+{% endblock content %}
